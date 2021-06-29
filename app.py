@@ -1,4 +1,6 @@
+import os
 from flask import Flask, render_template, request,url_for
+from flask.helpers import send_from_directory
 import requests
 # from urllib.parse import quote
 import json
@@ -64,6 +66,11 @@ def deleteAll():
             db.session.delete(translation)
         db.session.commit()
     return render_template('history.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/x-icon')
 
 
 
