@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+
+<main>
+    <section>
+        <br>
+        <center><img src="{{ url_for('static', filename='/images/image.jpeg') }}" class="img-fluid" alt="Translate"
+                width="550" style="border-radius: 20px;"></center>
+        <br>
+        <br>
+        <form action="/" method="POST">
+            <center>
+                <div class="form-floating">
+
+                    <textarea class="form-control" id="floatingTextarea2" placeholder="Write the English Sentence here" name="English Text"
+                        style="height: 100px; width: 550px;max-width: 100%;"></textarea>
+                    <label for="floatingTextarea2" style="position: absolute;left: 47%;">English</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning">Translate</button>
+            </center>
+        </form>
+    </section>
+
+    <article>
+        <center>
+            <br>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h6 class="card-title mb-2 text-muted">Hindi Translation</h6>
+                    <br>
+                    <p class="card-text">{{ hindi }}</p>
+                </div>
+            </div>
+        </center>
+    </article>
+
+    <aside>
+        <div class="position-absolute bottom-0 end-0">
+            <a href='/history' type="button" class="btn btn-outline-warning" style="margin: 30px;">Translation
+                History</a>
+        </div>
+    </aside>
+
+</main>
+
+{% endblock main %}

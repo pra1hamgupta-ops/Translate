@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block main %}
+<main>
+    <form action="/history" method="POST">
+        <div class="table-responsive">
+        <table class="table table-sm table-warning">
+            <thead>
+                <tr>
+                    <th scope="col">sNo</th>
+                    <th scope="col">English</th>
+                    <th scope="col">Hindi</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for record in records %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ record.english }}</td>
+                    <td>{{ record.hindi }}</td>
+                    <td><input type="radio" name="serial" id="serial" value="{{ record.english }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        <div class="position-absolute bottom-0 start-50 translate-middle-x">
+            <input type="submit" class="btn btn-outline-warning" value="Delete"
+                style="margin-bottom: 20px;margin-left: 13px;">
+            </form>
+            <form action="/deleteAll" method="POST">
+                <input type="submit" class="btn btn-warning" style="margin-bottom: 20px;margin-left: 4px;"
+                    value="Delete All">
+            </form>
+
+        </div>
+
+</main>
+
+{% endblock main %}
